@@ -20,15 +20,15 @@ const validDigits = {
     // "7": 7,
     // "8": 8,
     // "9": 9,
-    "one": "1",
-    "two": "2",
-    "three": "3",
-    "four": "4",
-    "five": "5",
+    "one": "o1e",
+    "two": "t2o",
+    "three": "t3e",
+    "four": "4r",
+    "five": "5e",
     "six": "6",
-    "seven": "7" ,
-    "eight": "8",
-    "nine": "9"
+    "seven": "7n" ,
+    "eight": "e8t",
+    "nine": "n9e"
 }
 
 function getFirstAndLast(arr) {
