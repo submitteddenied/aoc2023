@@ -19,7 +19,7 @@
             "request": "launch",
             "name": "TS Debug",
             "program": "${workspaceFolder}\\src\\${input:folder}\\index.ts",
-            "args": ["src\\${input:folder}\\input.txt"],
+            "args": ["src\\${input:folder}\\${input:input}"],
             "preLaunchTask": "npm: build",
             "sourceMaps": true,
             "smartStep": true,
@@ -30,6 +30,17 @@
         }
     ],
     "inputs": [
-        {"id": "folder", "description": "the AOC day to run (eg 01, or 22)", "type": "promptString"}
+        {"id": "folder", "description": "the AOC day to run (eg 01, or 22)", "type": "promptString"},
+        {
+            "type": "pickString",
+            "id": "input",
+            "description": "Which input file to use",
+            "options": [
+              "sample.txt",
+              "input.txt",
+              "sample2.txt"
+            ],
+            "default": "sample.txt"
+          }
     ]
 }
