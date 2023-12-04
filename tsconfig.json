@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
-    "target": "ES5",
-    "module": "CommonJS",
-    "outDir": "out",
-    "sourceMap": true
+    "outDir": "./out",
+    "rootDir": "./src",
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "target": "es5"
   }
 }

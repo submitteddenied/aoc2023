@@ -13,6 +13,23 @@
             ],
             "program": "${workspaceFolder}\\01\\index.js",
             "args": ["01\\input.txt"]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "TS Debug",
+            "program": "${workspaceFolder}\\src\\${input:folder}\\index.ts",
+            "args": ["src\\${input:folder}\\input.txt"],
+            "preLaunchTask": "npm: build",
+            "sourceMaps": true,
+            "smartStep": true,
+            "internalConsoleOptions": "openOnSessionStart",
+            "outFiles": [
+                "${workspaceFolder}/out/**/*.js"
+            ]
         }
+    ],
+    "inputs": [
+        {"id": "folder", "description": "the AOC day to run (eg 01, or 22)", "type": "promptString"}
     ]
 }
