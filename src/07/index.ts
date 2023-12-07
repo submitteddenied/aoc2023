@@ -48,7 +48,7 @@ class Hand {
             //add jokers to the card with the highest count
             //filter the joker's value out of the list
             values = values.filter((n, i) => i !== values.indexOf(jokerCount))
-            const highestCountCard = uniqueCards.find(c => faceToCount[c] === Math.max(...values))
+            const highestCountCard = uniqueCards.find(c => c !== 'J' && faceToCount[c] === Math.max(...values))
             faceToCount['J'] = 0
             faceToCount[highestCountCard] += jokerCount
             delete faceToCount['J']
@@ -113,13 +113,13 @@ const shuffle = <T>(arr: T[]): T[] => {
 }
 
 const hands: Hand[] = input.map(line => new Hand(line))
-for(let i = 0; i < 2; i++) {
+for(let i = 1; i < 2; i++) {
     const jokers = i !== 0
     const sorted = hands.sort(Hand.compare(jokers)).reverse()
     let result = 0
     sorted.forEach((h, i) => {
         const winnings = h.bid * (i+1)
-        //console.log(`Rank ${i+1}: ${h.cards.join("")} - ${HandType[h.handType(jokers)]} (${h.bid} = ${winnings})`)
+        console.log(`Rank ${i+1}: ${h.cards.join("")} - ${HandType[h.handType(jokers)]} (${h.bid} = ${winnings})`)
         result += winnings
     })
     
