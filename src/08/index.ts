@@ -41,12 +41,13 @@ const loopLength = (startPos: string): [number, number, number[]] => {
         if(curr.endsWith("Z")) {
             possibleEnds.push(step)
         }
-        const instruction = instructions[step % instructions.length]
-        stepKey = `${curr}:${instruction}`
+        const stepIdx = step % instructions.length
+        const instruction = instructions[stepIdx]
+        stepKey = `${curr}:${stepIdx}`
         if(seen[stepKey] !== undefined) {
             break
         }
-        seen[`${curr}:${instruction}`] = step
+        seen[stepKey] = step
         curr = nodes[curr][instruction === "L" ? 0 : 1]
         step++
     } while(true)
