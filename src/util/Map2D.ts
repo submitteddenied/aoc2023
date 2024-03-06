@@ -5,6 +5,16 @@ export class Map2D<T> {
 
     regions: Region2D<T>[]
 
+    nodeAtCoord(coord: Vector2D): Region2D<T> | undefined {
+        const hitbox = new Region2D(coord, 1, 1, undefined)
+        for(let i = 0; i < this.regions.length; i++) {
+            if(this.regions[i].intersects(hitbox)) {
+                return this.regions[i]
+            }
+        }
+        return undefined
+    }
+
     width(zeroBasis: boolean = false): number {
         return this.widthOrHeight(zeroBasis, 'x')
     }
